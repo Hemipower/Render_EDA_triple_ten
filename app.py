@@ -1,14 +1,12 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import pyarrow as pa
 
 
-st.title("Your Title Here")
+
+st.title("Fuel Consumption EDA")
 
 df = pd.read_csv('Fuel_Consumption_Ratings_2023.csv',encoding='latin-1',on_bad_lines='skip')
-
-
 
 # Create a histogram
 fig_hist = px.histogram(df, x='Make')
