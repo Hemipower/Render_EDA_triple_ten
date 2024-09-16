@@ -5,15 +5,15 @@ import plotly.express as px
 
 st.title("Your Title Here")
 
-df = pd.read_csv('sets.csv')
+df = pd.read_csv('Fuel_Consumption_Ratings_2023.csv')
 st.write(df)
 
 
 # Create a histogram
-fig_hist = px.histogram(df, x='Year')
+fig_hist = px.histogram(df, x='Make')
 
 # Create a scatterplot
-fig_scatter = px.scatter(df, x='Minifigures', y='Pieces')
+fig_scatter = px.scatter(df, x='Transmission', y='Fuel Consumption (L/100Km)')
 
 # Display the histogram
 st.plotly_chart(fig_hist)
