@@ -7,8 +7,7 @@ import pyarrow as pa
 st.title("Your Title Here")
 
 df = pd.read_csv('Fuel_Consumption_Ratings_2023.csv',encoding='latin-1',on_bad_lines='skip')
-table = pa.Table.from_pandas(df)
-st.write(table)
+
 
 
 # Create a histogram
