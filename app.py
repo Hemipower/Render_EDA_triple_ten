@@ -5,7 +5,7 @@ import plotly.express as px
 
 st.title("Your Title Here")
 
-df = pd.read_csv('Fuel_Consumption_Ratings_2023.csv',encoding='latin-1')
+df = pd.read_csv('Fuel_Consumption_Ratings_2023.csv',encoding='latin-1',on_bad_lines='skip')
 st.write(df)
 
 
