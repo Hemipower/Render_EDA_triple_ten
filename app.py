@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as st # type: ignore
 import pandas as pd
 import plotly.express as px
 
@@ -7,9 +7,25 @@ import plotly.express as px
 st.title("Fuel Consumption EDA")
 
 df = pd.read_csv('Fuel_Consumption_Ratings_2023.csv',encoding='latin-1',on_bad_lines='skip')
+df_z = df[df['Fuel Type']=='Z']
+df_x = df[df['Fuel Type']=='X']
+df_d = df[df['Fuel Type']=='D']
+df_e = df[df['Fuel Type']=='E']
 
 # Create a histogram
-fig_hist = px.histogram(df, x='Make')
+f_type = st.radio("Select a Fuel type",["Z","X","D","E"])
+
+if f_type =="Z":
+    fig_hist = px.histogram(df_z, x='Make')
+elif f_type =="X":
+    fig_hist = px.histogram(df_x, x='Make')
+elif f_type =="D":
+    fig_hist = px.histogram(df_d, x='Make')
+elif f_type =="E":
+    fig_hist = px.histogram(df_e, x='Make')
+else:
+    fig_hist = px.histogram(df, x='Make')
+st.write("We have used")
 
 # Create a scatterplot
 fig_scatter = px.scatter(df, x='Transmission', y='Fuel Consumption (L/100Km)')
