@@ -14,18 +14,18 @@ df_e = df[df['Fuel Type']=='E']
 
 # Create a histogram
 f_type = st.radio("Select a Fuel type",["Z","X","D","E"])
-
-if f_type =="Z":
-    fig_hist = px.histogram(df_z, x='Make')
-elif f_type =="X":
-    fig_hist = px.histogram(df_x, x='Make')
-elif f_type =="D":
-    fig_hist = px.histogram(df_d, x='Make')
-elif f_type =="E":
-    fig_hist = px.histogram(df_e, x='Make')
+checkbox = st.checkbox("Check this to turn on multiple fuel mode")
+if checkbox:
+    if f_type =="Z":
+        fig_hist = px.histogram(df_z, x='Make')
+    elif f_type =="X":
+        fig_hist = px.histogram(df_x, x='Make')
+    elif f_type =="D":
+        fig_hist = px.histogram(df_d, x='Make')
+    elif f_type =="E":
+        fig_hist = px.histogram(df_e, x='Make')
 else:
     fig_hist = px.histogram(df, x='Make')
-st.write("We have used")
 
 # Create a scatterplot
 fig_scatter = px.scatter(df, x='Transmission', y='Fuel Consumption (L/100Km)')
